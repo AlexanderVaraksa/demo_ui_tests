@@ -1,12 +1,10 @@
-from selene import browser
-
 from demo_ui_tests.pages.books_page import BooksPage
 
-# books_page = BooksPage()
+books_page = BooksPage()
 
 
 def test_search_book_by_title():
-    books_page = BooksPage()
+    # GIVEN
     books_page.open()
     books_page.verify_book_titles('Git Pocket Guide', 'Learning JavaScript Design Patterns',
                                   'Designing Evolvable Web APIs with ASP.NET',
@@ -14,8 +12,56 @@ def test_search_book_by_title():
                                   'Programming JavaScript Applications',
                                   'Eloquent JavaScript, Second Edition',
                                   'Understanding ECMAScript 6')
+    # WHEN
     books_page.input_search_text('Java')
-    books_page.verify_book_titles(('Learning JavaScript Design Patterns',
-                                   'Speaking JavaScript',
-                                   'Programming JavaScript Applications',
-                                   'Eloquent JavaScript, Second Edition'))
+    # THEN
+    books_page.verify_book_titles('Learning JavaScript Design Patterns',
+                                  'Speaking JavaScript',
+                                  'Programming JavaScript Applications',
+                                  'Eloquent JavaScript, Second Edition')
+
+
+def test_search_book_by_title_no_results():
+    # GIVEN
+    books_page.open()
+    books_page.verify_book_titles('Git Pocket Guide', 'Learning JavaScript Design Patterns',
+                                  'Designing Evolvable Web APIs with ASP.NET',
+                                  'Speaking JavaScript', "You Don't Know JS",
+                                  'Programming JavaScript Applications',
+                                  'Eloquent JavaScript, Second Edition',
+                                  'Understanding ECMAScript 6')
+    # WHEN
+    books_page.input_search_text('qwerty123')
+    # THEN
+    books_page.verify_no_books_found()
+    books_page.verify_book_titles()
+
+
+def test_search_book_by_author():
+    # GIVEN
+    books_page.open()
+    # WHEN
+    books_page.input_search_text('Kyle')
+    # THEN
+    books_page.verify_book_titles("You Don't Know JS")
+
+
+def test_open_book():
+    # GIVEN
+    books_page.open()
+    # WHEN
+    books_page.click_book('Git Pocket Guide')
+    # THEN
+    books_page.verify_book_properties_page_url_opened()
+    books_page.verify_book_properties_page_opened()
+    books_page.verify_book_data('9781449325862',
+                                'Git Pocket Guide',
+                                'A Working Introduction',
+                                'Richard E. Silverman',
+                                "O'Reilly Media",
+                                '234',
+                                "This pocket guide is the perfect on-the-job companion to Git, the distributed "
+                                "version control system. It provides a compact, readable introduction to Git for new "
+                                "users, as well as a reference to common commands and procedures for those of you "
+                                "with Git exp",
+                                'http://chimera.labs.oreilly.com/books/1230000000561/index.html')
