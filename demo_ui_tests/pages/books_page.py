@@ -1,17 +1,16 @@
 import allure
 from selene import have, command, by, be
 from selene.support.shared import browser
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 
 class BooksPage:
     def open(self):
-        browser.open('/books')
-        browser.all('[id^=google_ads][id$=container__]').with_(timeout=10).wait_until(
-            have.size_greater_than_or_equal(3)
-        )
-        browser.all('[id^=google_ads][id$=container__]').perform(command.js.remove)
+        with allure.step('Open books page'):
+            browser.open('/books')
+            browser.all('[id^=google_ads][id$=container__]').with_(timeout=10).wait_until(
+                have.size_greater_than_or_equal(3)
+            )
+            browser.all('[id^=google_ads][id$=container__]').perform(command.js.remove)
         return self
 
     def verify_book_titles(self, *titles):
@@ -28,32 +27,22 @@ class BooksPage:
             browser.all('[id^=see-book]').element_by(have.exact_text(book_title)).click()
 
     def verify_book_properties_page_url_opened(self, value='https://demoqa.com/books?book=9781449325862'):
-        with allure.step(f'Verify book properties page opened'):
+        with allure.step('Verify book properties page opened'):
             browser.should(have.url(value))
 
     def verify_book_properties_page_opened(self):
-        with allure.step(f'Verify book properties page opened'):
+        with allure.step('Verify book properties page opened'):
             browser.element('#ISBN-wrapper').should(be.visible)
 
     def verify_book_data(self, *data):
-        with allure.step(f'Verify book data'):
+        with allure.step('Verify book data'):
             browser.all('[id^="userName"]').should(
                 have.exact_texts(data))
 
     def verify_no_books_found(self):
-        with allure.step(f'Verify no books shown'):
+        with allure.step('Verify no books shown'):
             browser.element('.rt-noData').should(have.exact_text('No rows found'))
 
     def click_add_to_your_collection_button(self):
-        with allure.step(f'Click add to your collection button'):
+        with allure.step('Click add to your collection button'):
             browser.element(by.text('Add To Your Collection')).click()
-
-    def verify_alert_text_and_accept(self, alert_text):
-        with allure.step(f'Verify alert: "{alert_text}" shown'):
-            WebDriverWait(browser, 10).until(EC.alert_is_present(),
-                                             'Timed out waiting for PA creation ' +
-                                             'confirmation popup to appear.')
-            alert = browser.switch_to.alert
-            # assert alert.text == alert_text
-        with allure.step('Accept alert'):
-            alert.accept()

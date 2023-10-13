@@ -7,13 +7,12 @@ from demo_ui_tests.constants import profile_page_url, login_page_error_message, 
 
 class LoginPage:
     def open(self):
-        with allure.step(f'Open login page'):
+        with allure.step('Open login page'):
             browser.open('/login')
             browser.all('[id^=google_ads][id$=container__]').with_(timeout=10).wait_until(
                 have.size_greater_than_or_equal(3)
             )
             browser.all('[id^=google_ads][id$=container__]').perform(command.js.remove)
-        # return self
 
     def fill_user_name(self, value):
         with allure.step(f'Enter username "{value}"'):
@@ -36,7 +35,7 @@ class LoginPage:
             browser.element('//div[contains(@class, "main-header") and text()="Profile"]').should(be.visible)
 
     def verify_login_page_open(self):
-        with allure.step(f'Verify that login page opened'):
+        with allure.step('Verify that login page opened'):
             browser.element('//div[contains(@class, "main-header") and text()="Login"]').should(be.visible)
 
     def verify_login_url_open(self, url=login_page_url):

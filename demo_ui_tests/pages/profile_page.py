@@ -15,14 +15,6 @@ class ProfilePage:
         with allure.step('Click Log out'):
             browser.element(by.text('Log out')).click()
 
-    def click_book_store_menu(self):
-        with allure.step('Open Book Store'):
-            browser.element(by.text('Book Store')).click()
-
-    def click_profile_menu(self):
-        with allure.step('Open Profile page'):
-            browser.element(by.text('Profile')).click()
-
     def click_login_menu(self):
         with allure.step('Open login page'):
             browser.element(by.text('Login')).click()
