@@ -34,8 +34,11 @@ Example of test case in Allure Report:
 
 <img src="readme_images/bookstore_test.png" height="400"/>&nbsp;
 
+### Jenkins settings
+Jenkins is used for test runs. Jenkins job configuration
+<img src="readme_images/jenkins_settings.png" height="400"/>&nbsp;
+
 ### Test Launch
-Jenkins is used for test runs. 
 To run tests, go to [Jenkins job](https://jenkins.autotests.cloud/job/A06_alexanderv_demo_UI_Allure_TestOps/) and click 'Build with parameters', select browser and version (for example, firefox 98.0) click 'Build'.
 
 <img src="readme_images/bookstore_jenkins_job.png"/>&nbsp;
