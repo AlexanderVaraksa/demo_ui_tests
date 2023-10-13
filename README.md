@@ -1,4 +1,4 @@
-## Demo project on Python with Web UI tests for [BookStore DemoQa](https://demoqa.com/books) service
+## Demo project on Python with Web UI tests for [BookStore DemoQa](https://demoqa.com/books) web application
 
 <div align="center">
 <img src="readme_images/logo.png" height="100"/>&nbsp;
@@ -13,7 +13,6 @@
 <a href="https://github.com/yashaka/selene/"><img src="readme_images/technologies/selene.png" width="40" height="40"  alt="SELENE"/></a>
 <a href="https://python-poetry.org/"><img src="readme_images/technologies/poetry.png" width="40" height="40"  alt="POETRY"/></a>
 <a href="https://docs.pydantic.dev/latest/"><img src="readme_images/technologies/pydantic.png" width="40" height="40"  alt="PYDANTIC"/></a>
-<a href="https://pypi.org/project/requests/"><img src="readme_images/technologies/requests.png" width="40" height="40"  alt="REQUESTS"/></a>
 <a href="https://www.jenkins.io/"><img src="readme_images/technologies/jenkins.png" width="40" height="40"  alt="JENKINS"/></a>
 <a href="https://allurereport.org/"><img src="readme_images/technologies/allure_report.png" width="40" height="40"  alt="ALLUREREPORT"/></a>
 <a href="https://qameta.io/"><img src="readme_images/technologies/allure_testops.png" width="40" height="40"  alt="ALLURETESTOPS"/></a>
@@ -27,40 +26,43 @@ Web GUI-tests:
 * Bookstore: search, navigate, view book details
 * Profile: View, navigate
 
-* Example of Web test's running (successful login):
+* Example of recorded test run (scenario: check no login form after login):
 
-<img src="readme_images/bookstore_web_test.gif"/>&nbsp;
+<img src="readme_images/bookstore_web_test_video.gif"/>&nbsp;
 
 Example of test case in Allure Report:
 
-<img src="readme_images/bookstore_api_test.png" height="400"/>&nbsp;
+<img src="readme_images/bookstore_test.png" height="400"/>&nbsp;
 
 ### Test Launch
-Tests are launching using **Jenkins service**.
-Jenkins is used for test runs. To run tests, go to Jenkins job and click 'Build with parameters', select browser + version (for example, firefox 98.0) click 'Build'.
+Jenkins is used for test runs. To run tests, go to [Jenkins job](https://jenkins.autotests.cloud/job/A06_alexanderv_demo_UI_Allure_TestOps/) and click 'Build with parameters', select browser and version (for example, firefox 98.0) click 'Build'.
 
-<img src="readme_images/bookstore_jenkins_1.png"/>&nbsp;
-<img src="readme_images/bookstore_jenkins_2.png"/>&nbsp;
+<img src="readme_images/bookstore_jenkins_job.png"/>&nbsp;
+<img src="readme_images/bookstore_jenkins_job2.png"/>&nbsp;
 
 Additionally, integration with Allure TestOps added into same Jenkins job. So you can run Jenkins job with all the tests or specify individual tests to run via Allure TestOps.
 
-<img src="readme_images/bookstore_testops_jobs.png"/>&nbsp;
+<img src="readme_images/bookstore_alluretestops_job1.png"/>&nbsp;
 
 Select individual tests or test groups by their allure decorators:
 
-<img src="readme_images/bookstore_testops_parameters.png"/>&nbsp;
+<img src="readme_images/bookstore_testops_launch_parameters.png"/>&nbsp;
 
 ### Test Report and Test Documentation
 
 Reporting is implemented with Allure services.
 
-Allure Report can be opened from Jenkins, see screenshot below. And contains charts, details of test executions, different kinds of attachments (screenshots, logs, video, page html)
+Allure Report can be opened from Jenkins, see screenshot below. It displays charts, test executions details, different kinds of attachments (screenshots, logs, video, page html)
 
 <img src="readme_images/bookstore_allure_1.png"/>&nbsp;
+
+Test suite, test steps and attachments:
+
 <img src="readme_images/bookstore_allure_2.png"/>&nbsp;
 
 Allure TestOps also contains such information. Also it's generating Test Documentation that can be imported to Jira.
 <img src="readme_images/bookstore_testops_dashboard.png"/>&nbsp;
+<img src="readme_images/bookstore_testops_dashboard2.png"/>&nbsp;
 <img src="readme_images/bookstore_testops_tc.png"/>&nbsp;
 
 ### Integration with Jira
