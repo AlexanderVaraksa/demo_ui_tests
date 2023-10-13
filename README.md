@@ -41,11 +41,12 @@ To run tests, go to [Jenkins job](https://jenkins.autotests.cloud/job/A06_alexan
 <img src="readme_images/bookstore_jenkins_job.png"/>&nbsp;
 <img src="readme_images/bookstore_jenkins_job2.png"/>&nbsp;
 
-Additionally, integration with Allure TestOps added into same Jenkins job. So you can run Jenkins job with all the tests or specify individual tests to run via Allure TestOps.
+Additionally, integration with Allure TestOps added into same Jenkins job. 
+So you can run Jenkins job with all the tests or specify individual tests to run via Allure TestOps.
 
 <img src="readme_images/bookstore_alluretestops_job1.png"/>&nbsp;
 
-Select individual tests or test groups by their allure decorators:
+Select individual tests or test groups by their allure decorators, e.g. Profile page (@allure.feature('Profile page')):
 
 <img src="readme_images/bookstore_testops_launch_parameters.png"/>&nbsp;
 
@@ -62,7 +63,7 @@ Test suite, test steps and attachments:
 
 <img src="readme_images/bookstore_allure_2.png"/>&nbsp;
 
-Allure TestOps also contains such information. 
+Allure TestOps also contains charts and run information. 
 Also it's generating Test Documentation that can be imported to Jira.
 <img src="readme_images/bookstore_testops_dashboard.png"/>&nbsp;
 <img src="readme_images/bookstore_testops_dashboard2.png"/>&nbsp;
