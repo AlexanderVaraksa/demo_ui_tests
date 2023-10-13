@@ -35,7 +35,9 @@ Example of test case in Allure Report:
 <img src="readme_images/bookstore_test.png" height="400"/>&nbsp;
 
 ### Jenkins settings
-Jenkins is used for test runs. Jenkins job configuration
+Jenkins is used for test runs. 
+Jenkins job configuration is below:
+
 <img src="readme_images/jenkins_settings.png" height="400"/>&nbsp;
 
 ### Test Launch
