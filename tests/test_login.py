@@ -1,9 +1,22 @@
+import allure
+from allure_commons.types import Severity
+
 from demo_ui_tests.pages.login_page import LoginPage
 from demo_ui_tests.constants import user_password, user_name
+
+pytestmark = [
+    allure.label('layer', 'UI tests'),
+    allure.label('owner', 'alexander_varaksa'),
+    allure.epic('BookStore Web'),
+    allure.tag('web'),
+    allure.feature('Login page')
+]
 
 login_page = LoginPage()
 
 
+@allure.title("Verify login with valid credentials")
+@allure.severity(Severity.BLOCKER)
 def test_login():
     # GIVEN
     login_page.open()
@@ -16,6 +29,8 @@ def test_login():
     login_page.verify_user_label()
 
 
+@allure.title("Verify login with invalid password")
+@allure.severity(Severity.BLOCKER)
 def test_login_with_wrong_password():
     # GIVEN
     login_page.open()

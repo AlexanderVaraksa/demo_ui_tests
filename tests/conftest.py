@@ -11,17 +11,6 @@ from demo_ui_tests.utils import attach
 base_url = base_url_value
 
 
-# @pytest.fixture(scope="function", autouse=True)
-# def open_browser():
-#     browser.config.base_url = base_url
-#     browser.config.window_width = 1920
-#     browser.config.window_height = 1080
-#     browser.config.timeout = 8
-#
-#     yield
-#
-#     browser.quit()
-
 @pytest.fixture(scope='function', autouse=True)
 def setup_browser():
     browser.config.base_url = project.config.base_url

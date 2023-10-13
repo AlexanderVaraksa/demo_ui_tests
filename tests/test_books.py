@@ -1,8 +1,21 @@
+import allure
+from allure_commons.types import Severity
+
 from demo_ui_tests.pages.books_page import BooksPage
+
+pytestmark = [
+    allure.label('layer', 'UI tests'),
+    allure.label('owner', 'alexander_varaksa'),
+    allure.epic('BookStore Web'),
+    allure.tag('web'),
+    allure.feature('Books page')
+]
 
 books_page = BooksPage()
 
 
+@allure.title('Verify search by keyword in book title')
+@allure.severity(Severity.BLOCKER)
 def test_search_book_by_title():
     # GIVEN
     books_page.open()
@@ -21,6 +34,8 @@ def test_search_book_by_title():
                                   'Eloquent JavaScript, Second Edition')
 
 
+@allure.title('Verify search by keyword with no books found')
+@allure.severity(Severity.CRITICAL)
 def test_search_book_by_title_no_results():
     # GIVEN
     books_page.open()
@@ -37,6 +52,8 @@ def test_search_book_by_title_no_results():
     books_page.verify_book_titles()
 
 
+@allure.title('Verify search by author')
+@allure.severity(Severity.BLOCKER)
 def test_search_book_by_author():
     # GIVEN
     books_page.open()
@@ -45,7 +62,8 @@ def test_search_book_by_author():
     # THEN
     books_page.verify_book_titles("You Don't Know JS")
 
-
+@allure.title('Open book details page')
+@allure.severity(Severity.CRITICAL)
 def test_open_book():
     # GIVEN
     books_page.open()
