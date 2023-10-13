@@ -26,7 +26,7 @@ Web GUI-tests:
 * Bookstore: search, navigate, view book details
 * Profile: View, navigate
 
-* Example of recorded test run (scenario: check no login form after login):
+* Example of recorded test case run (scenario: check no login form after login):
 
 <img src="readme_images/bookstore_web_test_video.gif"/>&nbsp;
 
@@ -35,7 +35,8 @@ Example of test case in Allure Report:
 <img src="readme_images/bookstore_test.png" height="400"/>&nbsp;
 
 ### Test Launch
-Jenkins is used for test runs. To run tests, go to [Jenkins job](https://jenkins.autotests.cloud/job/A06_alexanderv_demo_UI_Allure_TestOps/) and click 'Build with parameters', select browser and version (for example, firefox 98.0) click 'Build'.
+Jenkins is used for test runs. 
+To run tests, go to [Jenkins job](https://jenkins.autotests.cloud/job/A06_alexanderv_demo_UI_Allure_TestOps/) and click 'Build with parameters', select browser and version (for example, firefox 98.0) click 'Build'.
 
 <img src="readme_images/bookstore_jenkins_job.png"/>&nbsp;
 <img src="readme_images/bookstore_jenkins_job2.png"/>&nbsp;
@@ -52,7 +53,8 @@ Select individual tests or test groups by their allure decorators:
 
 Reporting is implemented with Allure services.
 
-Allure Report can be opened from Jenkins, see screenshot below. It displays charts, test executions details, different kinds of attachments (screenshots, logs, video, page html)
+Allure Report can be opened from Jenkins, see the screenshot above. 
+It displays charts, test executions details, different kinds of attachments (screenshots, logs, video, page html)
 
 <img src="readme_images/bookstore_allure_1.png"/>&nbsp;
 
@@ -60,7 +62,8 @@ Test suite, test steps and attachments:
 
 <img src="readme_images/bookstore_allure_2.png"/>&nbsp;
 
-Allure TestOps also contains such information. Also it's generating Test Documentation that can be imported to Jira.
+Allure TestOps also contains such information. 
+Also it's generating Test Documentation that can be imported to Jira.
 <img src="readme_images/bookstore_testops_dashboard.png"/>&nbsp;
 <img src="readme_images/bookstore_testops_dashboard2.png"/>&nbsp;
 <img src="readme_images/bookstore_testops_tc.png"/>&nbsp;
@@ -71,7 +74,7 @@ Test Cases and Allure Launches have been integrated into Jira Task:
 <img src="readme_images/bookstore_jira.png"/>&nbsp;
 
 ### Test Results Notifications
-When test run finished, telegram message with the following data is sent:
+When test run finished, notification in telegram with the following data is sent:
 
 * total amount of tests and run duration
 * percentage of passed/failed/skipped etc. tests
@@ -81,4 +84,4 @@ When test run finished, telegram message with the following data is sent:
 
 The following tool is used for sending notifications: [allure-notifications library](https://github.com/qa-guru/allure-notifications). Telegram bot was created and added to a specific telegram group
 
-(many different notifications supported: Telegram, Slack, Skype, Email, Mattermost, Discord, Loop)
+(many other notifications types supported: Slack, Skype, Email, Mattermost, Discord, Loop)
